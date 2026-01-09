@@ -1,0 +1,144 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #0b0f14;
+    color: #e8eef6;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  
+  #app { position: relative; width: 100%; height: 100%; }
+  #c { width: 100%; height: 100%; display: block; }
+  
+  #hud { position: absolute; inset: 0; pointer-events: none; }
+  #crosshair {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    opacity: 0.85;
+  }
+  #debug {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 12px;
+    opacity: 0.85;
+    white-space: pre;
+  }
+  
+  .panel {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    background: rgba(10, 14, 20, 0.9);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 12px;
+    width: 320px;
+    pointer-events: auto;
+  }
+  
+  .panel h1 { margin: 0 0 10px 0; font-size: 18px; }
+  .panel label { display: block; font-size: 12px; opacity: 0.9; }
+  .panel input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+    border-radius: 8px;
+  }
+  .row { display: flex; gap: 8px; margin-top: 10px; }
+  button {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover { background: rgba(255,255,255,0.10); }
+  .hint { font-size: 12px; opacity: 0.75; margin: 10px 0 0; }
+  
+  .hidden { display: none; }
+  
+  #health {
+    position: absolute;
+    left: 10px;
+    bottom: 64px;
+    display: flex;
+    gap: 6px;
+    pointer-events: none;
+  }
+  .heart {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background: rgba(255,80,80,0.9);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.35) inset;
+  }
+  .heart.empty { background: rgba(255,80,80,0.25); }
+  
+  #hotbar {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    display: grid;
+    grid-auto-flow: column;
+    gap: 6px;
+    pointer-events: none;
+  }
+  .slot {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    position: relative;
+  }
+  .slot.active { outline: 2px solid rgba(255,255,255,0.55); }
+  .slot .count {
+    position: absolute;
+    right: 6px;
+    bottom: 4px;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .slot .label {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    font-size: 10px;
+    opacity: 0.85;
+  }
+  
+  #inventory.panel {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .invSlot {
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    position: relative;
+    user-select: none;
+  }
+  .invSlot .count { position: absolute; right: 6px; bottom: 4px; font-size: 12px; }
+  .invSlot .label { position: absolute; left: 6px; top: 4px; font-size: 10px; opacity: 0.85; }
+  .list { margin-top: 10px; display: grid; gap: 6px; }
+  .worldBtn { width: 100%; text-align: left; }
+  
