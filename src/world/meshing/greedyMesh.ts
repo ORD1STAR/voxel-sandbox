@@ -121,10 +121,23 @@ export function greedyMesh(
       colors.push(cr, cg, cb);
     }
 
-    indices.push(
-      baseIndex, baseIndex + 1, baseIndex + 2,
-      baseIndex, baseIndex + 2, baseIndex + 3
-    );
+    // Pick the triangle winding so the front face always matches the normal
+    // (the vertex orders above are not all counter-clockwise).
+    const ax = v[1][0] - v[0][0], ay = v[1][1] - v[0][1], az = v[1][2] - v[0][2];
+    const bx = v[2][0] - v[0][0], by = v[2][1] - v[0][1], bz = v[2][2] - v[0][2];
+    const dot = (ay * bz - az * by) * nx + (az * bx - ax * bz) * ny + (ax * by - ay * bx) * nz;
+
+    if (dot > 0) {
+      indices.push(
+        baseIndex, baseIndex + 1, baseIndex + 2,
+        baseIndex, baseIndex + 2, baseIndex + 3
+      );
+    } else {
+      indices.push(
+        baseIndex, baseIndex + 2, baseIndex + 1,
+        baseIndex, baseIndex + 3, baseIndex + 2
+      );
+    }
   };
 
   for (let x = 0; x < sx; x++) {

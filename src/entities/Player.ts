@@ -94,7 +94,8 @@ export class Player {
   bboxHalf = new THREE.Vector3(0.3, 0.9, 0.3);
 
   respawn(world: World) {
-    this.pos.set(0, 40, 0);
+    // spawn just above the terrain surface at the origin
+    this.pos.set(0.5, world.gen.heightAt(0, 0) + 2, 0.5);
     this.vel.set(0, 0, 0);
     this.hp = this.maxHp;
   }

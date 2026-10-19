@@ -160,11 +160,6 @@ export class WorldGen {
       blocks[idx(lx, p.y, lz)] = p.b;
     }
 
-    blocks = new Uint8Array(chunkSize * height * chunkSize);
-    for (let lx = 0; lx < chunkSize; lx++)
-      for (let lz = 0; lz < chunkSize; lz++)
-        for (let y = 0; y < 16; y++)
-          blocks[idx(lx, y, lz)] = BlockId.Grass;
     return blocks;
   }
 }
